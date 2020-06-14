@@ -1,4 +1,4 @@
-#fuzzystring
+__author__ = 'ZackDev'
 
 #generate a string consisting of:
 #-alphabet characters - a
