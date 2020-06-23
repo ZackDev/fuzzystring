@@ -71,4 +71,4 @@ def test(runtest=False):
         print(fuzzyfy('ans', 11))
         print(fuzzyfy('an', 1))
         print(fuzzyfy('san', 5))
-test()
+test(True)
