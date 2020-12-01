@@ -71,4 +71,6 @@ def test(runtest=False):
         print(fuzzyfy('ans', 11))
         print(fuzzyfy('an', 1))
         print(fuzzyfy('san', 5))
-test(True)
+
+if __name__ == '__main__':
+    print(fuzzyfy('an', 10))
