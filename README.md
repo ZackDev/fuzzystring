@@ -19,3 +19,5 @@ Output:
 ```
 G98o57r21f
 ```
+
+Returns None for false parameters.
