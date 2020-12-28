@@ -1,8 +1,8 @@
-Helper script to generate a parametrized random string.
+Helper script to generate a parameterized random string.
 
 The script takes two parameters as arguments:
 - type of string to generate
--- "a" - letters from latin alphabet a to Z
+-- "a" - letters from the latin alphabet a to Z
 -- "n" - numeric 0 to 9
 -- "s" - special characters !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
 
