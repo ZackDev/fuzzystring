@@ -18,8 +18,6 @@ regexstr = "a{0,1}n{0,1}s{0,1}|\
 
 def fuzzyfy(type, length):
 
-    fuzzystr = str("")
-
     #check type and length parameters for validity
     try:
         val = int(length)
@@ -38,8 +36,9 @@ def fuzzyfy(type, length):
         return None
 
     #build fuzzy string
+    fuzzystr = str("")
     for i in range(0,length):
-        fuzzystr += str(typeToChar(random.choice(type)))
+        fuzzystr += str(_type_to_char(random.choice(type)))
 
     #check fuzzy string for expected legth
     if len(fuzzystr) == length:
@@ -47,7 +46,7 @@ def fuzzyfy(type, length):
     else:
         return None
 
-def typeToChar(type):
+def _type_to_char(type):
     #returns character for a given type
     if type == "a":
         return(random.choice(string.ascii_lowercase + string.ascii_uppercase))
@@ -58,19 +57,19 @@ def typeToChar(type):
     else:
         return str("")
 
-def test(runtest=False):
-    if runtest:
-        print(fuzzyfy('ab', 2))
-        print(fuzzyfy('ans', 2))
-        print(fuzzyfy('', 0))
-        print(fuzzyfy('ans', 5))
-        print(fuzzyfy('xxansxx', 99))
-        print(fuzzyfy('ansans', 9))
-        print(fuzzyfy('ans', 'a'))
-        print(fuzzyfy('an', -1))
-        print(fuzzyfy('ans', 11))
-        print(fuzzyfy('an', 1))
-        print(fuzzyfy('san', 5))
+def test():
+    print(fuzzyfy('ab', 2))
+    print(fuzzyfy('ans', 2))
+    print(fuzzyfy('', 0))
+    print(fuzzyfy('ans', 5))
+    print(fuzzyfy('xxansxx', 99))
+    print(fuzzyfy('ansans', 9))
+    print(fuzzyfy('ans', 'a'))
+    print(fuzzyfy('an', -1))
+    print(fuzzyfy('ans', 11))
+    print(fuzzyfy('an', 1))
+    print(fuzzyfy('san', 5))
 
 if __name__ == '__main__':
-    print(fuzzyfy('an', 10))
+    s = fuzzyfy('an', 10, True)
+    print(s)
