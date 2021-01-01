@@ -50,7 +50,7 @@ def fuzzyfy(type, length):
 def typeToChar(type):
     #returns character for a given type
     if type == "a":
-        return(random.choice(string.ascii_lowercase.join(string.ascii_uppercase)))
+        return(random.choice(string.ascii_lowercase + string.ascii_uppercase))
     elif type == "n":
         return(random.choice(string.digits))
     elif type == "s":
