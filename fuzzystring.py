@@ -1,12 +1,3 @@
-__author__ = 'ZackDev'
-
-#generate a string consisting of:
-#-alphabet characters - a
-#-numerals - n
-#-special characters - s
-
-#return None if input is invalid
-
 import re, random, string
 
 regexstr = "a{0,1}n{0,1}s{0,1}|\
@@ -71,5 +62,5 @@ def test():
     print(fuzzyfy('san', 5))
 
 if __name__ == '__main__':
-    s = fuzzyfy('an', 10, True)
+    s = fuzzyfy('an', 10)
     print(s)
