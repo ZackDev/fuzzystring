@@ -1,13 +1,9 @@
-import re, random, string
+import re, random, string, os
 
-regexstr = "a{0,1}n{0,1}s{0,1}|\
-            a{0,1}s{0,1}n{0,1}|\
-            s{0,1}n{0,1}a{0,1}|\
-            s{0,1}a{0,1}n{0,1}|\
-            n{0,1}a{0,1}s{0,1}|\
-            n{0,1}s{0,1}a{0,1}"
+supported_types = ['a', 'n', 's']
+count_types = []
 
-def fuzzyfy(type, length):
+def fuzzyfy(types, length):
 
     #check type and length parameters for validity
     try:
@@ -15,21 +11,35 @@ def fuzzyfy(type, length):
     except:
         return None
 
-    if type == '' or type == "":
+    if types == '' or types == "":
         return None
 
     elif length < 1:
         return None
 
-    match = re.fullmatch(regexstr, type)
+    for type in types:
+        try:
+            supported_types.index(type)
+        except:
+            return None
 
-    if not match:
-        return None
+    for type in types:
+        type_occured = False
+        for counter in count_types:
+            if counter[0] == type:
+                counter[1] += 1
+                type_occured = True
+        if type_occured == False:
+            count_types.append([type, 1])
+
+    for counter in count_types:
+        if counter[1] > 1:
+            return None
 
     #build fuzzy string
     fuzzystr = str("")
     for i in range(0,length):
-        fuzzystr += str(_type_to_char(random.choice(type)))
+        fuzzystr += str(_type_to_char(random.choice(types)))
 
     #check fuzzy string for expected legth
     if len(fuzzystr) == length:
@@ -62,5 +72,5 @@ def test():
     print(fuzzyfy('san', 5))
 
 if __name__ == '__main__':
-    s = fuzzyfy('an', 10)
+    s = fuzzyfy('ans', 10)
     print(s)
